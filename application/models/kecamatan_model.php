@@ -24,7 +24,7 @@ class Kecamatan_model extends CI_Model {
         function get_all(){
             $query=$this->db->get('kecamatan');
             if($query->num_rows()>0){
-                return $query;
+                return $query->result();
             }else{
                 return FALSE;
             }
@@ -34,7 +34,7 @@ class Kecamatan_model extends CI_Model {
             $this->db->where('id',$id);
             $query=$this->db->get('kecamatan');
             if($query->num_rows()>0){
-                return $query;
+                return $query->result();
             }else{
                 return FALSE;
             }

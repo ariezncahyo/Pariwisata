@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2011 at 04:04 AM
+-- Generation Time: Nov 21, 2011 at 03:05 PM
 -- Server version: 5.1.49
 -- PHP Version: 5.3.3-1ubuntu9.5
 
@@ -31,12 +31,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `username` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `admin`
 --
 
+INSERT INTO `admin` (`id`, `nama`, `username`, `password`) VALUES
+(1, 'admin', 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72'),
+(2, 'bahri', 'bahri', 'bahri');
 
 -- --------------------------------------------------------
 
@@ -45,15 +48,17 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  `kategori` varchar(40) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kategori` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `kategori`
 --
 
+INSERT INTO `kategori` (`id`, `kategori`) VALUES
+(1, 'Gunung');
 
 -- --------------------------------------------------------
 
@@ -65,12 +70,15 @@ CREATE TABLE IF NOT EXISTS `kecamatan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `kecamatan`
 --
 
+INSERT INTO `kecamatan` (`id`, `nama`) VALUES
+(1, 'kijang'),
+(2, 'Lombangan');
 
 -- --------------------------------------------------------
 
@@ -83,12 +91,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id_kecamatan` int(11) NOT NULL,
   `pin` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
 --
 
+INSERT INTO `user` (`id`, `id_kecamatan`, `pin`) VALUES
+(2, 1, '123454'),
+(3, 2, '111');
 
 -- --------------------------------------------------------
 
@@ -107,9 +118,12 @@ CREATE TABLE IF NOT EXISTS `wisata` (
   `id_kategori` int(11) NOT NULL,
   `id_kecamatan` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `wisata`
 --
 
+INSERT INTO `wisata` (`id`, `nama_obyek`, `lokasi_obyek`, `jarak`, `akomodasi`, `keterangan`, `gambar`, `id_kategori`, `id_kecamatan`) VALUES
+(3, 'Gunung Cemara', 'Lamongan', '23Km', 'Bus', 'bagus bos', 'marhaban.jpg', 1, 1),
+(4, 'Goa', 'anyar', '12', 'motor', 'hahaha', '11_-_1.jpg', 1, 2);
